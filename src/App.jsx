@@ -1,14 +1,14 @@
-import { useState } from "react";
-import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import "./App.css";
+import Navbar from "./components/Navbar";
 import Banner from "./components/Banner";
-import Navbar from "./components/navbar";
 import Serviços from "./components/Serviços";
 import Depoimentos from "./components/Depoimentos";
 import Contato from "./components/Contato";
 
-function App() {
+import Impressao from "./pages/Impressao";
+
+function LandingPage() {
   return (
     <div className="flex flex-col">
       <Navbar />
@@ -17,6 +17,17 @@ function App() {
       <Depoimentos />
       <Contato />
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/Impressao" element={<Impressao />} />
+      </Routes>
+    </Router>
   );
 }
 
