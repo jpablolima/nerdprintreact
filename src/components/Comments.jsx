@@ -1,7 +1,7 @@
 function Comments() {
   return (
     <div>
-      <h2>O Que Nossos Clientes Dizem</h2>
+      <p>O Que Nossos Clientes Dizem</p>
     </div>
   );
 }
