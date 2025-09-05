@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+.interactive-gradient {
+  background: linear-gradient(45deg, #c4f25c, #0d1625, #c4f25c);
+  background-size: 300% 300%;
+  transition: background-position 0.5s ease;
+  background-position: 0% 50%;
+}
+
+.interactive-gradient:hover {
+  background-position: 100% 50%;
+}

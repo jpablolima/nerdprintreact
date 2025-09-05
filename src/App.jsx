@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Banner from "./components/Banner";
 import Serviços from "./components/Serviços";
-import Depoimentos from "./components/Depoimentos";
+
 import Contato from "./components/Contato";
 import FeaturesNerdPrint from "./components/FeaturesNerdPrint";
 import Impressao from "./pages/Impressao";
-import Comments from "./components/Comments";
+import GoogleReviews from "./components/GoogleReviews";
 
 function LandingPage() {
   return (
@@ -16,8 +16,8 @@ function LandingPage() {
       <Banner />
       <Serviços />
       <FeaturesNerdPrint />
-      <Comments />
-      <Depoimentos />
+      <GoogleReviews />
+
       <Contato />
     </div>
   );

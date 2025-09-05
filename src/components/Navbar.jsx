@@ -2,7 +2,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const NavbarItems = [
   { name: "services", label: "Serviços", link: "#services" },
-  { name: "testimonials", label: "Depoimentos", link: "#testimonials" },
+  { name: "googleReviews", label: "Comentarios", link: "#googleReviews" },
   { name: "location", label: "Contato", link: "#location" },
   { name: "shop", label: "NerdPrint Shop", link: "https://nerdprint.shop" },
 ];
