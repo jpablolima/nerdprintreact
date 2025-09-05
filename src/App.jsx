@@ -5,8 +5,9 @@ import Banner from "./components/Banner";
 import Serviços from "./components/Serviços";
 import Depoimentos from "./components/Depoimentos";
 import Contato from "./components/Contato";
-
+import FeaturesNerdPrint from "./components/FeaturesNerdPrint";
 import Impressao from "./pages/Impressao";
+import Comments from "./components/Comments";
 
 function LandingPage() {
   return (
@@ -14,6 +15,8 @@ function LandingPage() {
       <Navbar />
       <Banner />
       <Serviços />
+      <FeaturesNerdPrint />
+      <Comments />
       <Depoimentos />
       <Contato />
     </div>
