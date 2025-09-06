@@ -14,7 +14,7 @@ import ServiceImg4 from "../assets/adesivo.png";
 import ServiceImg5 from "../assets/chaveiro.png";
 import ServiceImg6 from "../assets/fotos.png";
 import ServiceImg7 from "../assets/socialmedia.png";
-import { href, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const services = [
   {
