@@ -1,3 +1,4 @@
+import { use, useEffect } from "react";
 import { useState } from "react";
 
 export default function GoogleReviews() {

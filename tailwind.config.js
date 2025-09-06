@@ -5,7 +5,40 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}", // <- importante para Vite + React
   ],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        keyframes: {
+          keyframes: {
+            float: {
+              "0%, 100%": { transform: "translateY(0px)" },
+              "50%": { transform: "translateY(-10px)" },
+            },
+            fadeIn: {
+              "0%": { opacity: 0, transform: "translateY(20px)" },
+              "100%": { opacity: 1, transform: "translateY(0)" },
+            },
+          },
+          animation: {
+            float: "float 4s ease-in-out infinite",
+            fadeIn: "fadeIn 0.6s ease forwards",
+          },
+          float: {
+            "0%, 100%": { transform: "translateY(0px)" },
+            "50%": { transform: "translateY(-10px)" },
+          },
+        },
+        animation: {
+          float: "float 4s ease-in-out infinite",
+        },
+        float: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+      },
+      animation: {
+        float: "float 4s ease-in-out infinite",
+      },
+    },
     animation: {
       "gradient-pulse": "gradientPulse 10s ease infinite",
     },

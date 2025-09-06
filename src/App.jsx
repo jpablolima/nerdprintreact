@@ -8,6 +8,7 @@ import Contato from "./components/Contato";
 import FeaturesNerdPrint from "./components/FeaturesNerdPrint";
 import Impressao from "./pages/Impressao";
 import GoogleReviews from "./components/GoogleReviews";
+import LocationSection from "./components/LocationSection";
 
 function LandingPage() {
   return (
@@ -17,7 +18,7 @@ function LandingPage() {
       <Serviços />
       <FeaturesNerdPrint />
       <GoogleReviews />
-
+      <LocationSection />
       <Contato />
     </div>
   );
