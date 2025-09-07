@@ -59,7 +59,7 @@ export default function LocationSection() {
                     Águas Lindas de Goiás - GO
                     <br />
                     <a
-                      href="https://maps.google.com/?q=Águas+Lindas+de+Goiás"
+                      href="https://www.google.com/maps/place/Nerd+Print/@-15.7394253,-48.2627188,17z/data=!3m1!4b1!4m6!3m5!1s0x935bb91d90de75ef:0x9af1069090a4e7f2!8m2!3d-15.7394305!4d-48.2601439!16s%2Fg%2F11krq4vz30?entry=ttu&g_ep=EgoyMDI1MDkwMy4wIKXMDSoASAFQAw%3D%3D"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-[#c4f25c] hover:text-white underline transition-colors duration-300"
