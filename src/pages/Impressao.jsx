@@ -41,7 +41,7 @@ function ImpressaoPremium() {
   ];
 
   return (
-    <div className="flex flex-col items-center w-full bg-[#0d1625] text-[#0d1625] py-16 px-4">
+    <div className="flex flex-col items-center w-full bg- text-[#0d1625] py-16 px-4">
       {/* Banner */}
       <div className="text-center mb-12 max-w-3xl">
         <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
