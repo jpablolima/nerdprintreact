@@ -31,14 +31,14 @@ const features = [
 
 function FeaturesNerdPrint() {
   return (
-    <section id="features" className="flex justify-center bg-[#0d1625]">
-      <div className="w-full max-w-7xl mx-auto py-16 px-4">
+    <section id="features" className="flex justify-center bg-[#0d1625] ">
+      <div className="w-full max-w-7xl mx-auto py-16 px-4 cursor-default">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-12">
           Por Que escolher a NerdPrint?
         </h2>
 
         {/* Grid responsiva */}
-        <div className="cursor-pointer grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => (
             <div
               key={index}
