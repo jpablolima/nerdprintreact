@@ -1,15 +1,36 @@
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const NavbarItems = [
   { name: "services", label: "Serviços", link: "#services" },
-  { name: "googleReviews", label: "Comentarios", link: "#googleReviews" },
+  { name: "googleReviews", label: "Comentários", link: "#googleReviews" },
   { name: "location", label: "Contato", link: "#location" },
-  { name: "shop", label: "NerdPrint Shop", link: "https://nerdprint.shop" },
+  { name: "shop", label: "NerdPrint Shop", link: "#shop" },
 ];
 
 function Navbar() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleScrollOrNavigate = (link) => {
+    if (link === "#shop") {
+      window.open("https://nerdprint.shop", "_blank");
+      return;
+    }
+
+    if (location.pathname !== "/") {
+      // Redireciona para landing page e passa o hash como estado
+      navigate("/", { state: { scrollTo: link } });
+    } else {
+      const element = document.querySelector(link);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   return (
-    <header className=" w-full bg-[#0d1625] shadow-md z-50 py-2">
+    <header className="w-full bg-[#0d1625] shadow-md z-50 py-2">
       <div className="mx-auto px-4 flex flex-col lg:flex-row justify-between items-center gap-4">
         <div className="flex flex-col items-center lg:flex-row lg:items-center gap-2">
           <img
@@ -23,13 +44,12 @@ function Navbar() {
           <ul className="flex flex-col lg:flex-row list-none justify-center items-center gap-6">
             {NavbarItems.map((item) => (
               <li key={item.name}>
-                <a
-                  href={item.link}
+                <button
+                  onClick={() => handleScrollOrNavigate(item.link)}
                   className="relative text-white font-semibold text-lg lg:text-xl hover:after:w-full after:content-[''] after:absolute after:w-0 after:h-[2px] after:-bottom-1 after:left-0 after:bg-[#c4f25c] after:transition-all after:duration-300"
-                  target={item.name === "shop" ? "_blank" : "_self"}
                 >
                   {item.label}
-                </a>
+                </button>
               </li>
             ))}
           </ul>

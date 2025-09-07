@@ -6,6 +6,11 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: "#0d1625",
+        secondary: "#c4f25c",
+        neutral: "#ffffff",
+      },
       keyframes: {
         keyframes: {
           keyframes: {
