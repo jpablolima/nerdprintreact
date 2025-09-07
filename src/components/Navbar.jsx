@@ -1,9 +1,10 @@
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useState } from "react";
 
 const NavbarItems = [
   { name: "services", label: "Serviços", link: "#services" },
-  { name: "googleReviews", label: "Comentários", link: "#googleReviews" },
+  { name: "googleReviews", label: "Avaliações", link: "#googleReviews" },
   { name: "location", label: "Contato", link: "#location" },
   { name: "shop", label: "NerdPrint Shop", link: "#shop" },
 ];
@@ -11,6 +12,7 @@ const NavbarItems = [
 function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleScrollOrNavigate = (link) => {
     if (link === "#shop") {
@@ -19,34 +21,40 @@ function Navbar() {
     }
 
     if (location.pathname !== "/") {
-      // Redireciona para landing page e passa o hash como estado
       navigate("/", { state: { scrollTo: link } });
     } else {
       const element = document.querySelector(link);
       if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+        const navbar = document.querySelector("header");
+        const navbarHeight = navbar ? navbar.offsetHeight : 0;
+        const elementPosition =
+          element.getBoundingClientRect().top + window.scrollY - navbarHeight;
+        window.scrollTo({ top: elementPosition, behavior: "smooth" });
       }
     }
+    setMenuOpen(false); // fecha menu ao clicar
   };
 
   return (
-    <header className="w-full bg-[#0d1625] shadow-md z-50 py-2">
-      <div className="mx-auto px-4 flex flex-col lg:flex-row justify-between items-center gap-4">
-        <div className="flex flex-col items-center lg:flex-row lg:items-center gap-2">
+    <header className="fixed w-full bg-[#0d1625] shadow-md z-50">
+      <div className="mx-auto px-4 flex justify-between items-center h-16">
+        {/* Logo */}
+        <div className="flex items-center gap-2">
           <img
             src="./src/assets/logo3.jpg"
             alt="Logo da NerdPrint"
-            className="h-20 w-auto"
+            className="h-12 w-auto"
           />
         </div>
 
-        <nav className="w-full lg:w-auto">
-          <ul className="flex flex-col lg:flex-row list-none justify-center items-center gap-6">
+        {/* Menu desktop */}
+        <nav className="hidden lg:flex">
+          <ul className="flex gap-6 items-center">
             {NavbarItems.map((item) => (
               <li key={item.name}>
                 <button
                   onClick={() => handleScrollOrNavigate(item.link)}
-                  className="relative text-white font-semibold text-lg lg:text-xl hover:after:w-full after:content-[''] after:absolute after:w-0 after:h-[2px] after:-bottom-1 after:left-0 after:bg-[#c4f25c] after:transition-all after:duration-300"
+                  className="relative text-white font-medium text-lg hover:after:w-full after:content-[''] after:absolute after:w-0 after:h-[2px] after:-bottom-1 after:left-0 after:bg-[#c4f25c] after:transition-all after:duration-300"
                 >
                   {item.label}
                 </button>
@@ -55,27 +63,73 @@ function Navbar() {
           </ul>
         </nav>
 
-        <div className="flex gap-2 mt-4 lg:mt-0">
+        {/* Ações desktop */}
+        <div className="hidden lg:flex gap-3 items-center">
           <a
             href="https://wa.me/556192724881"
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-2 px-2 bg-[#c4f25c] text-[#0d1625] rounded-lg font-semibold text-lg transition-all hover:bg-[#a7d64d] hover:-translate-y-1 shadow-md"
+            className="flex items-center gap-2 px-3 py-1 bg-[#c4f25c] text-[#0d1625] rounded-lg font-semibold text-sm transition-all hover:bg-[#a7d64d] shadow-md"
           >
-            <i className="fab fa-whatsapp text-2xl " />
+            <i className="fab fa-whatsapp text-lg" />
             WhatsApp
           </a>
           <a
             href="https://www.instagram.com/nerd_printt/"
             target="_blank"
             rel="noreferrer"
-            title="Instagram"
-            className="text-white text-3xl hover:text-[#c4f25c] transition-colors flex items-center"
+            className="text-white text-2xl hover:text-[#c4f25c] transition-colors"
           >
             <i className="fab fa-instagram"></i>
           </a>
         </div>
+
+        {/* Botão hamburguer mobile */}
+        <button
+          className="lg:hidden text-white text-2xl"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <i className={menuOpen ? "fas fa-times" : "fas fa-bars"}></i>
+        </button>
       </div>
+
+      {/* Menu mobile */}
+      {menuOpen && (
+        <div className="lg:hidden bg-[#0d1625] shadow-md flex flex-col items-center gap-6 py-6 animate-fadeIn">
+          <ul className="flex flex-col items-center gap-6">
+            {NavbarItems.map((item) => (
+              <li key={item.name}>
+                <button
+                  onClick={() => handleScrollOrNavigate(item.link)}
+                  className="text-white text-lg font-medium"
+                >
+                  {item.label}
+                </button>
+              </li>
+            ))}
+          </ul>
+
+          <div className="flex gap-4 mt-4">
+            <a
+              href="https://wa.me/556192724881"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-2 px-3 py-1 bg-[#c4f25c] text-[#0d1625] rounded-lg font-semibold text-sm hover:bg-[#a7d64d] shadow-md"
+            >
+              <i className="fab fa-whatsapp text-lg" />
+              WhatsApp
+            </a>
+            <a
+              href="https://www.instagram.com/nerd_printt/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-white text-2xl hover:text-[#c4f25c]"
+            >
+              <i className="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
