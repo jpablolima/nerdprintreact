@@ -8,6 +8,13 @@ import {
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 
+// Imagens locais
+import adesivo from "../assets/impressao/adesivo.jpg";
+import cartao from "../assets/impressao/cartaoDeVisita.jpg";
+import fotos from "../assets/impressao/fotos.jpg";
+import impressao from "../assets/impressao/impressao.jpg";
+import plantasEProjetos from "../assets/impressao/plantasEProjetos.jpg";
+
 function ImpressaoPremium() {
   const impressaoTypes = [
     {
@@ -41,7 +48,7 @@ function ImpressaoPremium() {
   ];
 
   return (
-    <div className="flex flex-col items-center w-full bg- text-[#0d1625] py-16 px-4">
+    <div className="flex flex-col items-center w-full bg-[#0d1625] text-[#0d1625] py-16 px-4">
       {/* Banner */}
       <div className="text-center mb-12 max-w-3xl">
         <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
@@ -146,15 +153,9 @@ function FadeInCard({ item }) {
   );
 }
 
-// Seção de galeria de imagens pronta para substituir localmente
+// Seção de galeria de imagens com Framer Motion
 function GaleriaImpressao() {
-  // Substitua os links abaixo pelas imagens locais
-  const imagens = [
-    "/imagens/impressao1.jpg",
-    "/imagens/impressao2.jpg",
-    "/imagens/impressao3.jpg",
-    "/imagens/impressao4.jpg",
-  ];
+  const imagens = [adesivo, cartao, fotos, impressao, plantasEProjetos];
 
   return (
     <section className="w-full py-16 bg-gray-50 px-4">
@@ -169,8 +170,12 @@ function GaleriaImpressao() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {imagens.map((img, index) => (
-          <div
+          <motion.div
             key={index}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: index * 0.2 }}
+            viewport={{ once: true }}
             className="rounded-lg overflow-hidden shadow-lg transform transition hover:scale-105"
           >
             <img
@@ -178,7 +183,7 @@ function GaleriaImpressao() {
               alt={`Exemplo ${index + 1}`}
               className="w-full h-48 object-cover"
             />
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
