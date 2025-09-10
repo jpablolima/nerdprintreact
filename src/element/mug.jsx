@@ -25,8 +25,10 @@ function Mug(props) {
 
 export default function RotatingMug() {
   return (
-    <div className="w-[600px] h-[500px]  from-zinc-50 to-zinc-100 rounded-2xl overflow-hidden bg-transparent">
+    <div className="w-[400px] h-[400px] from-zinc-50 to-zinc-100 rounded-2xl  bg-transparent">
       <Canvas
+        onPointerDown={(e) => e.stopPropagation()} // se quiser impedir rotação
+        style={{ pointerEvents: "none" }} // deixa só scroll
         camera={{ position: [14.0, 0.6, 1.2], fov: 60 }}
         shadows
         dpr={[1, 2]}

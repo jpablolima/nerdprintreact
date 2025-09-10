@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../components/Navbar";
 import RotatingMug from "../element/mug";
+import { FaWhatsapp } from "react-icons/fa";
 
 import caneca1 from "../assets/canecas/caneca1.jpeg";
 import caneca2 from "../assets/canecas/caneca2.jpeg";
@@ -20,29 +20,40 @@ function Canecas() {
     setBgPos({ x, y });
   };
 
+  const handleTouchMove = (e) => {
+    const touch = e.touches[0];
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((touch.clientX - rect.left) / rect.width) * 100;
+    const y = ((touch.clientY - rect.top) / rect.height) * 100;
+    setBgPos({ x, y });
+  };
+
   const imagens = [
     { src: caneca1, alt: "Caneca 1" },
     { src: caneca2, alt: "Caneca 2" },
     { src: caneca3, alt: "Caneca 3" },
     { src: caneca4, alt: "Caneca 4" },
   ];
+
   const videos = [
     { src: video1, alt: "Vídeo 1" },
     { src: video2, alt: "Vídeo 2" },
   ];
 
   return (
-    <section className="bg-[#0d1625] min-h-screen">
-      <Navbar />
-
+    <section className="bg-[#0d1625] min-h-screen pt-28 scroll-pt-28">
       {/* Título */}
-      <div className="font-bold text-center text-3xl lg:text-5xl pt-17 pb-6  text-white">
+      <div className="font-bold text-center text-3xl lg:text-5xl pb-6 text-white">
         Nossos Serviços de Canecas Personalizadas
       </div>
 
-      {/* Fundo interativo aplicado só nessa área */}
-      <div className="relative overflow-hidden" onMouseMove={handleMouseMove}>
-        {/* Background interativo */}
+      {/* Fundo interativo */}
+      <div
+        className="relative overflow-hidden min-h-[400px] sm:min-h-[500px] lg:min-h-[600px]"
+        onMouseMove={handleMouseMove}
+        onTouchMove={handleTouchMove}
+      >
+        {/* Gradient de fundo */}
         <div
           className="absolute inset-0 transition-all duration-500"
           style={{
@@ -52,59 +63,62 @@ function Canecas() {
         />
 
         {/* Conteúdo acima do background */}
-
-        <div className="relative z-10 font-bold  lg:flex-row items-center gap-60 lg:gap-90 text-center pt-20">
-          <div>
-            <h1 className="font-bold text-3xl text-left pl-10">
+        <div className="relative z-10 flex flex-col lg:flex-row items-center gap-10 lg:gap-20 text-center pt-10 px-4 lg:px-20">
+          <div className="flex-1 text-left">
+            <h1 className="font-bold text-2xl lg:text-3xl text-white mb-4">
               SUA CANECA COMO DESEJAR
             </h1>
-          </div>
-          <div className="flex flex-col items-center relative  font-bold  lg:flex-row lg:gap-100 text-center p-1 pl-10">
-            <h2 className="text-3xl font-light  max-w-lg text-white text-left">
+            <p className="text-white text-base lg:text-lg">
               Oferecemos uma variedade de canecas personalizadas para todas as
               ocasiões. Nossas canecas são perfeitas para presentear amigos e
               familiares, ou para uso pessoal. Com designs exclusivos e
               altíssima qualidade, nossas canecas são feitas para durar e
               impressionar.
-            </h2>
-            <h1>
-              <RotatingMug />
-            </h1>
+            </p>
+          </div>
+          <div className="flex-1 flex justify-center mt-6 lg:mt-0">
+            <RotatingMug />
           </div>
         </div>
       </div>
 
-      {/* Foto e videos de exemplos de canecas */}
-
-      <div className="flex flex-grid items-center justify-center p-6 gap-4 ">
+      {/* Galeria de imagens */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-6">
         {imagens.map((img, index) => (
           <img
             key={index}
             src={img.src}
             alt={img.alt}
-            className="w-64 h-[341px] rounded-lg  hover:scale-150 border border-[#15ff00] transition-transform duration-300"
+            className="w-full h-60 sm:h-64 lg:h-80 rounded-lg border border-[#c4f25c] object-cover hover:scale-105 transition-transform duration-300"
           />
         ))}
       </div>
-      <div className="flex items-center justify-center p-6 gap-4">
+
+      {/* Galeria de vídeos */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 p-6">
         {videos.map((vid, index) => (
           <video
             key={index}
             src={vid.src}
-            alt={vid.alt}
-            className="w-64 h-[341px] rounded-lg hover:scale-150 border border-[#15ff00] transition-transform duration-300 object-cover"
+            className="w-full h-60 sm:h-64 lg:h-80 rounded-lg border border-[#c4f25c] object-cover hover:scale-105 transition-transform duration-300"
             autoPlay
             loop
             muted
           />
         ))}
       </div>
-      <div className="text-center pb-10">
-        <Link to="/contato">
-          <button className="mt-4 px-6 py-3 bg-[#15ff00] text-black font-semibold rounded-lg hover:bg-green-600 transition-colors duration-300">
-            Peça um Orçamento
-          </button>
-        </Link>
+
+      {/* Botão de orçamento */}
+      <div className="flex justify-center">
+        <a
+          href="https://wa.me/556192724881"
+          target="_blank"
+          rel="noreferrer"
+          className="flex items-center gap-3 px-6 py-3 bg-[rgb(196,242,92)] text-[#0d1625] font-semibold rounded-lg shadow-lg hover:bg-[#a7d64d] transition transform hover:scale-105 my-12"
+        >
+          <FaWhatsapp className="text-2xl" />
+          Solicitar Orçamento
+        </a>
       </div>
     </section>
   );
