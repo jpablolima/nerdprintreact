@@ -9,6 +9,7 @@ import Camisetas from "./pages/camisetas";
 import Adesivos from "./pages/Adesivos";
 import Fotos from "./pages/Fotos";
 import Chaveiros from "./pages/Chaveiros";
+import ArteDesign from "./pages/ArteDesign";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/adesivos" element={<Adesivos />} />
         <Route path="/fotos" element={<Fotos />} />
         <Route path="/chaveiros" element={<Chaveiros />} />
+        <Route path="/artes" element={<ArteDesign />} />
       </Routes>
     </Router>
   );

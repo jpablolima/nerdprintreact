@@ -1,5 +1,4 @@
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
 import chaveiro from "../assets/chaveiros/bannerchaveiro.png";
 import chaveiro1 from "../assets/chaveiros/chaveiro1.jpg";
@@ -13,22 +12,22 @@ function Chaveiros() {
     { src: chaveiro3, legenda: "Design exclusivo e durável" },
   ];
 
-  const bannerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: bannerRef,
-    offset: ["start start", "end start"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
-
   return (
     <div className="relative w-full bg-[#0d1625] text-white overflow-hidden">
-      {/* BANNER EM DESTAQUE COM PARALLAX DE SCROLL */}
+      {/* BANNER EM DESTAQUE COM ZOOM + PARALLAX */}
       <motion.div
-        ref={bannerRef}
         className="w-full h-96 sm:h-[500px] relative flex justify-center items-center overflow-hidden rounded-b-3xl shadow-2xl"
-        style={{ y, scale }}
+        initial={{ scale: 1, x: 0, y: 0 }}
+        animate={{
+          scale: [1, 1.05, 1],
+          x: [0, 15, -15, 0],
+          y: [0, 10, -10, 0],
+        }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
       >
         <img
           src={chaveiro}
