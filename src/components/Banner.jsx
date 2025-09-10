@@ -1,10 +1,11 @@
+import plotterImg from "../assets/plotter.jpg";
 function Banner() {
   return (
     <div>
       <section
         id="hero"
-        className="relative flex items-center justify-center text-center text-white h-[75vh] bg-[url('../img/plotter.jpg')] bg-cover bg-[center_80%] overflow-hidden pt-20"
-        style={{ backgroundImage: "url('./src/assets/plotter.jpg')" }}
+        className="relative flex items-center justify-center text-center text-white h-[75vh] bg-cover bg-[center_80%] overflow-hidden pt-20"
+        style={{ backgroundImage: `url(${plotterImg})` }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-[#0d1625b3] to-[#0d1625b3]"></div>
 

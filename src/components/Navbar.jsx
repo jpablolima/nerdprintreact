@@ -2,6 +2,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import logo from "../assets/logo3.jpg";
 
 const NavbarItems = [
   { name: "services", label: "Serviços", link: "#services" },
@@ -55,11 +56,7 @@ function Navbar() {
       <div className="mx-auto px-4 flex justify-between items-center h-16">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 cursor-pointer">
-          <img
-            src="./src/assets/logo3.jpg"
-            alt="Logo da NerdPrint"
-            className="h-12 w-auto"
-          />
+          <img src={logo} alt="Logo da NerdPrint" className="h-12 w-auto" />
         </Link>
 
         {/* Menu desktop */}
