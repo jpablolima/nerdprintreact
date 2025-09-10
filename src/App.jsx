@@ -8,6 +8,7 @@ import Impressao from "./pages/Impressao";
 import Camisetas from "./pages/camisetas";
 import Adesivos from "./pages/Adesivos";
 import Fotos from "./pages/Fotos";
+import Chaveiros from "./pages/Chaveiros";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/camisetas" element={<Camisetas />} />
         <Route path="/adesivos" element={<Adesivos />} />
         <Route path="/fotos" element={<Fotos />} />
+        <Route path="/chaveiros" element={<Chaveiros />} />
       </Routes>
     </Router>
   );
