@@ -19,7 +19,7 @@ function AdesivosTagsEtiquetas() {
     },
     {
       src: topo3d,
-      legenda: "Topos de bolo em 3D",
+      legenda: "Topos de bolo personalizados",
       rotate: "-3deg",
     },
   ];
