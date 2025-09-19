@@ -1,126 +1,131 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import RotatingMug from "../element/mug";
 import { FaWhatsapp } from "react-icons/fa";
 
-import caneca1 from "../assets/canecas/caneca1.jpeg";
-import caneca2 from "../assets/canecas/caneca2.jpeg";
-import caneca3 from "../assets/canecas/caneca3.jpeg";
-import caneca4 from "../assets/canecas/caneca4.jpeg";
-import video1 from "../assets/canecas/video1.mp4";
-import video2 from "../assets/canecas/video2.mp4";
+import capacanecas from "../assets/canecas/capacanecas.jpg";
+import canecabranca from "../assets/canecas/canecabranca.png";
+import alcacolorida from "../assets/canecas/alcacolorida.png";
+import alcadecoracao from "../assets/canecas/alcadecoracao.png";
+import canecapreta from "../assets/canecas/canecapreta.png";
+import marmorizada from "../assets/canecas/marmorizada.png";
+
+import video1 from "../assets/canecas/video1.mp4"
+import video2 from "../assets/canecas/video2.mp4"
 
 function Canecas() {
-  const [bgPos, setBgPos] = useState({ x: 50, y: 50 });
-
-  const handleMouseMove = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-    setBgPos({ x, y });
-  };
-
-  const handleTouchMove = (e) => {
-    const touch = e.touches[0];
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = ((touch.clientX - rect.left) / rect.width) * 100;
-    const y = ((touch.clientY - rect.top) / rect.height) * 100;
-    setBgPos({ x, y });
-  };
-
   const imagens = [
-    { src: caneca1, alt: "Caneca 1" },
-    { src: caneca2, alt: "Caneca 2" },
-    { src: caneca3, alt: "Caneca 3" },
-    { src: caneca4, alt: "Caneca 4" },
+    { src: canecabranca, alt: "Canecas 100% Branca" },
+    { src: alcacolorida, alt: "Canecas com alça Colorida " },
+    { src: alcadecoracao, alt: "Caneca com alça de Coração " },
+    { src: canecapreta, alt: "Canecas 100% Preta" },
+    { src: marmorizada, alt: "Canecas Marmorizada" }
   ];
 
   const videos = [
-    { src: video1, alt: "Vídeo 1" },
-    { src: video2, alt: "Vídeo 2" },
+    { src: video1, alt: "" },
+    { src: video2, alt: "" },
   ];
 
   return (
-    <section className="bg-[#0d1625] min-h-screen pt-28 scroll-pt-28">
-      {/* Título */}
-      <div className="font-bold text-center text-3xl lg:text-5xl pb-6 text-white">
-        Nossos Serviços de Canecas Personalizadas
-      </div>
-
-      {/* Fundo interativo */}
-      <div
-        className="relative overflow-hidden min-h-[400px] sm:min-h-[500px] lg:min-h-[600px]"
-        onMouseMove={handleMouseMove}
-        onTouchMove={handleTouchMove}
+    <div className="bg-[#0d1625] text-white">
+      {/* HERO */}
+      <section
+        id="canecascapa"
+        className="relative w-full min-h-[60vh] flex items-center justify-center text-center text-white bg-gradient-to-r from-[#0f172a] to-[#1e293b] overflow-hidden"
+        style={{ backgroundImage: `url(${capacanecas})` }}
       >
-        {/* Gradient de fundo */}
-        <div
-          className="absolute inset-0 transition-all duration-500"
-          style={{
-            background: `radial-gradient(circle at ${bgPos.x}% ${bgPos.y}%, #c4f25c, #0d1625 80%)`,
-            zIndex: 0,
-          }}
-        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0d1625d9] to-[#0d1625d9]"></div>
 
-        {/* Conteúdo acima do background */}
-        <div className="relative z-10 flex flex-col lg:flex-row items-center gap-10 lg:gap-20 text-center pt-10 px-4 lg:px-20">
-          <div className="flex-1 text-left">
-            <h1 className="font-bold text-2xl lg:text-3xl text-white mb-4">
-              SUA CANECA COMO DESEJAR
-            </h1>
-            <p className="text-white text-base lg:text-lg">
-              Oferecemos uma variedade de canecas personalizadas para todas as
-              ocasiões. Nossas canecas são perfeitas para presentear amigos e
-              familiares, ou para uso pessoal. Com designs exclusivos e
-              altíssima qualidade, nossas canecas são feitas para durar e
-              impressionar.
-            </p>
-          </div>
-          <div className="flex-1 flex justify-center mt-6 lg:mt-0">
-            <RotatingMug />
+        <div className="relative z-10 max-w-3xl mx-auto px-4">
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
+            Canecas Personalizadas
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto mb-8">
+            Torne seus momentos mais especiais com canecas únicas e de alta
+            qualidade. Seja para presentear ou para o dia a dia, temos o design
+            perfeito para você.
+          </p>
+
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <a
+              href="https://wa.me/556192724881"
+              target="_blank"
+              rel="noreferrer"
+              className="px-6 py-3 bg-[#c4f25c] text-[#0d1625] font-semibold rounded-lg shadow-lg hover:bg-[#a7d64d] transition-all hover:-translate-y-1"
+            >
+              <FaWhatsapp className="inline mr-2" />
+              Faça um Orçamento
+            </a>
+            <a
+              href="#galeria"
+              className="px-6 py-3 border border-[#c4f25c] font-semibold rounded-lg shadow-lg hover:bg-[#c4f25c] hover:text-[#0d1625] transition-all hover:-translate-y-1"
+            >
+              Ver Modelos
+            </a>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Galeria de imagens */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-6">
-        {imagens.map((img, index) => (
-          <img
-            key={index}
-            src={img.src}
-            alt={img.alt}
-            className="w-full h-60 sm:h-64 lg:h-80 rounded-lg border border-[#c4f25c] object-cover hover:scale-105 transition-transform duration-300"
-          />
-        ))}
-      </div>
+      {/* GALERIA */}
+      <section id="galeria" className="py-12 px-6 max-w-7xl mx-auto">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-[#c4f25c]">
+          Nossos Modelos
+        </h2>
 
-      {/* Galeria de vídeos */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 p-6">
-        {videos.map((vid, index) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          {imagens.map((img, index) => (
+            <div
+              key={index}
+              className="bg-[#0d1625] rounded-xl overflow-hidden border border-[#c4f25c] shadow-lg hover:shadow-[#c4f25c]/50 transition-transform hover:scale-105"
+            >
+              <img
+                src={img.src}
+                alt={img.alt}
+                className="w-full h-56 object-cover"
+              />
+              <div className="p-4 text-center text-gray-200">{img.alt}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      
+      {/* GALERIA DE VÍDEOS */}
+
+    <section className="py-12 px-6 max-w-7xl mx-auto">
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-[#c4f25c]">
+          Veja Nossas Canecas em Ação
+      </h2>
+
+     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
+         {videos.map((vid, index) => (
+              <div key={index} className="rounded-xl overflow-hidden border border-[#c4f25c] shadow-lg">
           <video
-            key={index}
-            src={vid.src}
-            className="w-full h-60 sm:h-64 lg:h-80 rounded-lg border border-[#c4f25c] object-cover hover:scale-105 transition-transform duration-300"
-            autoPlay
-            loop
-            muted
-          />
-        ))}
+          src={vid.src}
+          controls
+          className="w-full aspect-[4/3] object-cover rounded-2xl"
+        />
+        <div className="p-4 text-center text-gray-200">{vid.alt}</div>
       </div>
+    ))}
+  </div>
+</section>
 
-      {/* Botão de orçamento */}
-      <div className="flex justify-center">
+
+
+
+      <section className="py-12 bg-gradient-to-r from-[#0d1625] to-[#0f223d] text-center">
+        <h3 className="text-2xl md:text-3xl font-semibold mb-6">
+          Quer a sua caneca personalizada?
+        </h3>
         <a
           href="https://wa.me/556192724881"
           target="_blank"
           rel="noreferrer"
-          className="flex items-center gap-3 px-6 py-3 bg-[rgb(196,242,92)] text-[#0d1625] font-semibold rounded-lg shadow-lg hover:bg-[#a7d64d] transition transform hover:scale-105 my-12"
+          className="inline-block px-8 py-4 bg-[#c4f25c] text-[#0d1625] font-bold rounded-lg shadow-xl hover:bg-[#a7d64d] transition-transform hover:-translate-y-1"
         >
-          <FaWhatsapp className="text-2xl" />
-          Solicitar Orçamento
+          Fale Conosco no WhatsApp
         </a>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }
 

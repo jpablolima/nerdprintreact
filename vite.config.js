@@ -15,4 +15,12 @@ export default defineConfig({
       avif: { quality: 50 },
     }),
   ],
+  server: {
+     host: true,
+     watch: {
+      usePolling: true,
+     }
+}
 });
+
+
