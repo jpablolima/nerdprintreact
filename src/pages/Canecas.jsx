@@ -7,8 +7,10 @@ import alcadecoracao from "../assets/canecas/alcadecoracao.png";
 import canecapreta from "../assets/canecas/canecapreta.png";
 import marmorizada from "../assets/canecas/marmorizada.png";
 
-import video1 from "../assets/canecas/video1.mp4"
-import video2 from "../assets/canecas/video2.mp4"
+import alcadecoracaovideo from "../assets/canecas/alcadecoracaovideo.mp4"
+import caneca1 from "../assets/canecas/caneca1.mp4"
+import canecaonepiece from "../assets/canecas/canecaonepiece.mp4"
+import canecadepadrinhos from "../assets/canecas/canecadepadrinhos.mp4"
 
 function Canecas() {
   const imagens = [
@@ -20,8 +22,10 @@ function Canecas() {
   ];
 
   const videos = [
-    { src: video1, alt: "" },
-    { src: video2, alt: "" },
+    { src: alcadecoracaovideo, alt: "" },
+    { src: caneca1, alt: "" },
+    { src: canecaonepiece, alt: "" },
+    { src: canecadepadrinhos, alt: "" },
   ];
 
   return (
