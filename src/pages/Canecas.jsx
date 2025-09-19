@@ -1,20 +1,22 @@
 import { FaWhatsapp } from "react-icons/fa";
 
 import capacanecas from "../assets/canecas/capacanecas.jpg";
-import caneca1 from "../assets/canecas/caneca1.jpeg";
-import caneca2 from "../assets/canecas/caneca2.jpeg";
-import caneca3 from "../assets/canecas/caneca3.jpeg";
-import caneca4 from "../assets/canecas/caneca4.jpeg";
+import canecabranca from "../assets/canecas/canecabranca.png";
+import alcacolorida from "../assets/canecas/alcacolorida.png";
+import alcadecoracao from "../assets/canecas/alcadecoracao.png";
+import canecapreta from "../assets/canecas/canecapreta.png";
+import marmorizada from "../assets/canecas/marmorizada.png";
+
 import video1 from "../assets/canecas/video1.mp4"
 import video2 from "../assets/canecas/video2.mp4"
 
 function Canecas() {
   const imagens = [
-    { src: caneca1, alt: "Canecas 100% Branca" },
-    { src: caneca2, alt: "Canecas com alças Colorida " },
-    { src: caneca3, alt: "Caneca com alça de Coração " },
-    { src: caneca4, alt: "Canecas 100% Preta" },
-    // src: caneca4, alt: "Canecas Marmorizada" },
+    { src: canecabranca, alt: "Canecas 100% Branca" },
+    { src: alcacolorida, alt: "Canecas com alças Colorida " },
+    { src: alcadecoracao, alt: "Caneca com alça de Coração " },
+    { src: canecapreta, alt: "Canecas 100% Preta" },
+    { src: marmorizada, alt: "Canecas Marmorizada" }
   ];
 
   const videos = [
