@@ -13,7 +13,7 @@ import video2 from "../assets/canecas/video2.mp4"
 function Canecas() {
   const imagens = [
     { src: canecabranca, alt: "Canecas 100% Branca" },
-    { src: alcacolorida, alt: "Canecas com alças Colorida " },
+    { src: alcacolorida, alt: "Canecas com alça Colorida " },
     { src: alcadecoracao, alt: "Caneca com alça de Coração " },
     { src: canecapreta, alt: "Canecas 100% Preta" },
     { src: marmorizada, alt: "Canecas Marmorizada" }
@@ -70,7 +70,7 @@ function Canecas() {
           Nossos Modelos
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {imagens.map((img, index) => (
             <div
               key={index}
