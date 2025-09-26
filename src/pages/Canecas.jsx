@@ -1,4 +1,6 @@
 import { FaWhatsapp } from "react-icons/fa";
+import LocationSection from "../components/LocationSection";
+import GoogleReviews from "../components/GoogleReviews";
 
 import capacanecas from "../assets/canecas/capacanecas.jpg";
 import canecabranca from "../assets/canecas/canecabranca.png";
@@ -7,25 +9,25 @@ import alcadecoracao from "../assets/canecas/alcadecoracao.png";
 import canecapreta from "../assets/canecas/canecapreta.png";
 import marmorizada from "../assets/canecas/marmorizada.png";
 
-import alcadecoracaovideo from "../assets/canecas/alcadecoracaovideo.mp4"
-import caneca1 from "../assets/canecas/caneca1.mp4"
-import canecaonepiece from "../assets/canecas/canecaonepiece.mp4"
-import canecadepadrinhos from "../assets/canecas/canecadepadrinhos.mp4"
+import alcadecoracaovideo from "../assets/canecas/alcadecoracaovideo.mp4";
+import caneca1 from "../assets/canecas/caneca1.mp4";
+import canecaonepiece from "../assets/canecas/canecaonepiece.mp4";
+import canecadepadrinhos from "../assets/canecas/canecadepadrinhos.mp4";
 
 function Canecas() {
   const imagens = [
     { src: canecabranca, alt: "Canecas 100% Branca" },
-    { src: alcacolorida, alt: "Canecas com alça Colorida " },
-    { src: alcadecoracao, alt: "Caneca com alça de Coração " },
+    { src: alcacolorida, alt: "Canecas com alça Colorida" },
+    { src: alcadecoracao, alt: "Caneca com alça de Coração" },
     { src: canecapreta, alt: "Canecas 100% Preta" },
-    { src: marmorizada, alt: "Canecas Marmorizada" }
+    { src: marmorizada, alt: "Canecas Marmorizada" },
   ];
 
   const videos = [
-    { src: alcadecoracaovideo, alt: "" },
-    { src: caneca1, alt: "" },
-    { src: canecaonepiece, alt: "" },
-    { src: canecadepadrinhos, alt: "" },
+    { src: alcadecoracaovideo, alt: "Caneca com alça de coração em uso" },
+    { src: caneca1, alt: "Caneca personalizada com estampa especial" },
+    { src: canecaonepiece, alt: "Caneca temática One Piece" },
+    { src: canecadepadrinhos, alt: "Caneca para padrinhos" },
   ];
 
   return (
@@ -91,31 +93,36 @@ function Canecas() {
         </div>
       </section>
 
-      
       {/* GALERIA DE VÍDEOS */}
-
-    <section className="py-12 px-6 max-w-7xl mx-auto">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-[#c4f25c]">
+      <section className="py-12 px-6 max-w-7xl mx-auto">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-[#c4f25c]">
           Veja Nossas Canecas em Ação
-      </h2>
+        </h2>
 
-     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
-         {videos.map((vid, index) => (
-              <div key={index} className="rounded-xl overflow-hidden border border-[#c4f25c] shadow-lg">
-          <video
-          src={vid.src}
-          controls
-          className="w-full aspect-[4/3] object-cover rounded-2xl"
-        />
-        <div className="p-4 text-center text-gray-200">{vid.alt}</div>
-      </div>
-    ))}
-  </div>
-</section>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {videos.map((vid, index) => (
+            <div
+              key={index}
+              className="rounded-xl overflow-hidden border border-[#c4f25c] shadow-lg"
+            >
+              <video
+                src={vid.src}
+                controls
+                className="w-full aspect-[4/3] object-cover rounded-2xl"
+              />
+              <div className="p-4 text-center text-gray-200">{vid.alt}</div>
+            </div>
+          ))}
+        </div>
+      </section>
 
+      {/* GoogleReviews */}
+      <GoogleReviews/>
 
+      {/* LOCALIZAÇÃO */}
+      <LocationSection />
 
-
+      {/* CTA FINAL */}
       <section className="py-12 bg-gradient-to-r from-[#0d1625] to-[#0f223d] text-center">
         <h3 className="text-2xl md:text-3xl font-semibold mb-6">
           Quer a sua caneca personalizada?
