@@ -2,6 +2,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import LocationSection from "../components/LocationSection";
 import GoogleReviews from "../components/GoogleReviews";
 
+
 import capacanecas from "../assets/canecas/capacanecas.jpg";
 import canecabranca from "../assets/canecas/canecabranca.png";
 import alcacolorida from "../assets/canecas/alcacolorida.png";
