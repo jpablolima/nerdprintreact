@@ -1,107 +1,219 @@
-import { FaWhatsapp } from "react-icons/fa";
-import LocationSection from "../components/LocationSection";
-import GoogleReviews from "../components/GoogleReviews";
+import { useEffect, useRef, useState } from "react";
+import {
+  FaFileAlt,
+  FaPalette,
+  FaBook,
+  FaProjectDiagram,
+  FaWhatsapp,
+} from "react-icons/fa";
+import { motion } from "framer-motion";
 
-import capaimpressao from "../assets/impressao/capaimpressao.jpg";
-import impressaoA3 from "../assets/impressao/impressaoA3.jpg";
-import impressaoA4 from "../assets/impressao/impressaoA4.jpg";
-import fotos from "../assets/impressao/fotos.jpg";
-import cartao from "../assets/impressao/cartaoDeVisita.jpg";
+// Imagens locais
 import adesivo from "../assets/impressao/adesivo.jpg";
+import cartao from "../assets/impressao/cartaoDeVisita.jpg";
+import fotos from "../assets/impressao/fotos.jpg";
+import impressao from "../assets/impressao/impressao.jpg";
+import plantasEProjetos from "../assets/impressao/plantasEProjetos.jpg";
+import capaimpressao from "../assets/impressao/capaimpressao.jpg";
 
 function ImpressaoPremium() {
-  const imagens = [
-    { src: impressaoA3, alt: "Impressão A3 Colorida" },
-    { src: impressaoA4, alt: "Impressão A4 Preto e Branco" },
-    { src: fotos, alt: "Revelação de Fotos" },
-    { src: cartao, alt: "Cartão de Visita" },
-    { src: adesivo, alt: "Adesivos Personalizados" },
+  const impressaoTypes = [
+    {
+      title: "Preto e Branco",
+      description:
+        "Documentos e trabalhos em preto e branco com qualidade profissional.",
+      icon: <FaFileAlt className="text-4xl mb-2 text-[#c4f25c]" />,
+      details: "Ideal para trabalhos simples e documentos do dia a dia.",
+    },
+    {
+      title: "Colorido",
+      description:
+        "Impressões coloridas para trabalhos, projetos ou materiais gráficos.",
+      icon: <FaPalette className="text-4xl mb-2 text-[#c4f25c]" />,
+      details: "Perfeito para apresentações, flyers ou projetos criativos.",
+    },
+    {
+      title: "Trabalhos Acadêmicos",
+      description: "Impressão de monografias, artigos e relatórios acadêmicos.",
+      icon: <FaBook className="text-4xl mb-2 text-[#c4f25c]" />,
+      details:
+        "Capa personalizada, encadernação e alta qualidade de impressão.",
+    },
+    {
+      title: "Projetos Profissionais",
+      description:
+        "Plantas, projetos de design ou arquitetura com impressão de alta precisão.",
+      icon: <FaProjectDiagram className="text-4xl mb-2 text-[#c4f25c]" />,
+      details: "Alta resolução e cores precisas para profissionais.",
+    },
   ];
 
   return (
-    <div className="bg-[#0d1625] text-white">
-      {/* HERO */}
-      <section
-        id="impressaocapa"
-        className="relative w-full min-h-[60vh] flex items-center justify-center text-center text-white bg-gradient-to-r from-[#0f172a] to-[#1e293b] overflow-hidden"
-        style={{ backgroundImage: `url(${capaimpressao})` }}
+    <div className="flex flex-col items-center w-full bg-[#0d1625] text-[#0d1625]">
+      {/* Banner estilo canecas */}
+      <div
+        className="relative w-full min-h-[60vh] flex items-center justify-center text-center text-white overflow-hidden"
+        style={{
+          backgroundImage: `linear-gradient(rgba(15,23,42,0.85), rgba(15,23,42,0.85)), url(${capaimpressao})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0d1625d9] to-[#0d1625d9]"></div>
-
-        <div className="relative z-10 max-w-3xl mx-auto px-4">
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
-            Impressão Premium
+        <div className="max-w-3xl px-4">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            Impressão de Alta Qualidade
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto mb-8">
-            Impressões de alta qualidade para trabalhos, documentos,
-            projetos, fotos e muito mais.  
-            Oferecemos soluções personalizadas para cada necessidade.
+          <p className="text-lg md:text-xl text-gray-200 mb-8">
+            Impressão de documentos, trabalhos e projetos em preto e branco ou
+            colorido com a máxima qualidade. Ideal para uso acadêmico,
+            profissional ou pessoal.
           </p>
 
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <div className="flex flex-wrap gap-4 justify-center">
             <a
               href="https://wa.me/556192724881"
               target="_blank"
               rel="noreferrer"
-              className="px-6 py-3 bg-[#c4f25c] text-[#0d1625] font-semibold rounded-lg shadow-lg hover:bg-[#a7d64d] transition-all hover:-translate-y-1"
+              className="px-6 py-3 bg-[#c4f25c] text-[#0d1625] font-semibold rounded-lg shadow-lg hover:bg-[#a7d64d] transition transform hover:scale-105"
             >
-              <FaWhatsapp className="inline mr-2" />
-              Enviar Arquivo
+              <FaWhatsapp className="inline-block mr-2" />
+              Enviar Arquivo via WhatsApp
             </a>
             <a
               href="#galeria"
-              className="px-6 py-3 border border-[#c4f25c] font-semibold rounded-lg shadow-lg hover:bg-[#c4f25c] hover:text-[#0d1625] transition-all hover:-translate-y-1"
+              className="px-6 py-3 border border-[#c4f25c] text-[#c4f25c] font-semibold rounded-lg hover:bg-[#c4f25c] hover:text-[#0d1625] transition"
             >
               Ver Exemplos
             </a>
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* GALERIA */}
-      <section id="galeria" className="py-12 px-6 max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-[#c4f25c]">
-          Nossos Serviços de Impressão
-        </h2>
+      {/* Cards flip com fade-in */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 w-full max-w-6xl mb-12 mt-16 px-4">
+        {impressaoTypes.map((item, index) => (
+          <FadeInCard key={index} item={item} />
+        ))}
+      </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-          {imagens.map((img, index) => (
-            <div
-              key={index}
-              className="bg-[#0d1625] rounded-xl overflow-hidden border border-[#c4f25c] shadow-lg hover:shadow-[#c4f25c]/50 transition-transform hover:scale-105"
-            >
-              <img
-                src={img.src}
-                alt={img.alt}
-                className="w-full h-56 object-cover"
-              />
-              <div className="p-4 text-center text-gray-200">{img.alt}</div>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* Galeria de imagens */}
+      <GaleriaImpressao />
 
-      {/* GoogleReviews */}
-      <GoogleReviews />
-
-      {/* LOCALIZAÇÃO */}
-      <LocationSection />
-
-      {/* CTA FINAL */}
-      <section className="py-12 bg-gradient-to-r from-[#0d1625] to-[#0f223d] text-center">
-        <h3 className="text-2xl md:text-3xl font-semibold mb-6">
-          Precisa de uma impressão de alta qualidade?
-        </h3>
-        <a
-          href="https://wa.me/556192724881"
-          target="_blank"
-          rel="noreferrer"
-          className="inline-block px-8 py-4 bg-[#c4f25c] text-[#0d1625] font-bold rounded-lg shadow-xl hover:bg-[#a7d64d] transition-transform hover:-translate-y-1"
-        >
-          Fale Conosco no WhatsApp
-        </a>
-      </section>
+      {/* Botão extra WhatsApp no fim */}
+      <a
+        href="https://wa.me/556192724881"
+        target="_blank"
+        rel="noreferrer"
+        className="flex items-center gap-3 px-6 py-3 bg-[#c4f25c] text-[#0d1625] font-semibold rounded-lg shadow-lg hover:bg-[#a7d64d] transition transform hover:scale-105 mt-12 mb-16"
+      >
+        <FaWhatsapp className="text-2xl" />
+        Enviar Arquivo via WhatsApp
+      </a>
     </div>
+  );
+}
+
+function FadeInCard({ item }) {
+  const [flipped, setFlipped] = useState(false);
+  const ref = useRef(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setInView(true);
+      },
+      { threshold: 0.2 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => {
+      if (ref.current) observer.unobserve(ref.current);
+    };
+  }, []);
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 30 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay: 0.1 }}
+      className="w-full"
+    >
+      <div
+        className="relative w-full h-64 cursor-pointer"
+        onMouseEnter={() => setFlipped(true)}
+        onMouseLeave={() => setFlipped(false)}
+        style={{ perspective: "1000px" }}
+      >
+        <div
+          className="relative w-full h-full transition-transform duration-500"
+          style={{
+            transformStyle: "preserve-3d",
+            transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)",
+          }}
+        >
+          {/* Frente */}
+          <div
+            className="absolute w-full h-full bg-white rounded-xl shadow-md flex flex-col items-center justify-center p-6"
+            style={{ backfaceVisibility: "hidden" }}
+          >
+            {item.icon}
+            <h2 className="text-xl font-semibold mb-2">{item.title}</h2>
+            <p className="text-gray-700">{item.description}</p>
+          </div>
+
+          {/* Verso */}
+          <div
+            className="absolute w-full h-full bg-[#c4f25c] rounded-xl flex flex-col items-center justify-center p-6"
+            style={{
+              backfaceVisibility: "hidden",
+              transform: "rotateY(180deg)",
+            }}
+          >
+            <div className="text-center">
+              <h2 className="text-xl font-semibold mb-2">{item.title}</h2>
+              <p>{item.details}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+function GaleriaImpressao() {
+  const imagens = [adesivo, cartao, fotos, impressao, plantasEProjetos];
+
+  return (
+    <section id="galeria" className="w-full py-16 bg-gray-50 px-4">
+      <div className="max-w-6xl mx-auto text-center mb-12">
+        <h2 className="text-3xl font-bold text-[#0d1625]">
+          Galeria do Serviço
+        </h2>
+        <p className="text-gray-600 mt-2">
+          Veja alguns exemplos das impressões que realizamos.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {imagens.map((img, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: index * 0.2 }}
+            viewport={{ once: true }}
+            className="rounded-lg overflow-hidden shadow-lg transform transition hover:scale-105"
+          >
+            <img
+              src={img}
+              alt={`Exemplo ${index + 1}`}
+              className="w-full h-48 object-cover"
+            />
+          </motion.div>
+        ))}
+      </div>
+    </section>
   );
 }
 
