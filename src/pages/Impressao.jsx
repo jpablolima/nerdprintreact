@@ -14,6 +14,7 @@ import cartao from "../assets/impressao/cartaoDeVisita.jpg";
 import fotos from "../assets/impressao/fotos.jpg";
 import impressao from "../assets/impressao/impressao.jpg";
 import plantasEProjetos from "../assets/impressao/plantasEProjetos.jpg";
+import capaimpressao from "../assets/impressao/capaimpressao.jpg";
 
 function ImpressaoPremium() {
   const impressaoTypes = [
@@ -48,20 +49,48 @@ function ImpressaoPremium() {
   ];
 
   return (
-    <div className="flex flex-col items-center w-full bg-[#0d1625] text-[#0d1625] py-16 px-4">
-      {/* Banner */}
-      <div className="text-center mb-12 max-w-3xl">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-          Impressão de Alta Qualidade
-        </h1>
-        <p className="text-lg md:text-xl text-gray-200">
-          Impressão de documentos, trabalhos e projetos em preto e branco ou
-          colorido com a máxima qualidade.
-        </p>
+    <div className="flex flex-col items-center w-full bg-[#0d1625] text-[#0d1625]">
+      {/* Banner estilo canecas */}
+      <div
+        className="relative w-full min-h-[60vh] flex items-center justify-center text-center text-white overflow-hidden"
+        style={{
+          backgroundImage: `linear-gradient(rgba(15,23,42,0.85), rgba(15,23,42,0.85)), url(${capaimpressao})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="max-w-3xl px-4">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            Impressão de Alta Qualidade
+          </h1>
+          <p className="text-lg md:text-xl text-gray-200 mb-8">
+            Impressão de documentos, trabalhos e projetos em preto e branco ou
+            colorido com a máxima qualidade. Ideal para uso acadêmico,
+            profissional ou pessoal.
+          </p>
+
+          <div className="flex flex-wrap gap-4 justify-center">
+            <a
+              href="https://wa.me/556192724881"
+              target="_blank"
+              rel="noreferrer"
+              className="px-6 py-3 bg-[#c4f25c] text-[#0d1625] font-semibold rounded-lg shadow-lg hover:bg-[#a7d64d] transition transform hover:scale-105"
+            >
+              <FaWhatsapp className="inline-block mr-2" />
+              Enviar Arquivo via WhatsApp
+            </a>
+            <a
+              href="#galeria"
+              className="px-6 py-3 border border-[#c4f25c] text-[#c4f25c] font-semibold rounded-lg hover:bg-[#c4f25c] hover:text-[#0d1625] transition"
+            >
+              Ver Exemplos
+            </a>
+          </div>
+        </div>
       </div>
 
       {/* Cards flip com fade-in */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 w-full max-w-6xl mb-12">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 w-full max-w-6xl mb-12 mt-16 px-4">
         {impressaoTypes.map((item, index) => (
           <FadeInCard key={index} item={item} />
         ))}
@@ -70,12 +99,12 @@ function ImpressaoPremium() {
       {/* Galeria de imagens */}
       <GaleriaImpressao />
 
-      {/* Botão de WhatsApp */}
+      {/* Botão extra WhatsApp no fim */}
       <a
         href="https://wa.me/556192724881"
         target="_blank"
         rel="noreferrer"
-        className="flex items-center gap-3 px-6 py-3 bg-[#c4f25c] text-[#0d1625] font-semibold rounded-lg shadow-lg hover:bg-[#a7d64d] transition transform hover:scale-105 mt-12"
+        className="flex items-center gap-3 px-6 py-3 bg-[#c4f25c] text-[#0d1625] font-semibold rounded-lg shadow-lg hover:bg-[#a7d64d] transition transform hover:scale-105 mt-12 mb-16"
       >
         <FaWhatsapp className="text-2xl" />
         Enviar Arquivo via WhatsApp
@@ -116,7 +145,6 @@ function FadeInCard({ item }) {
         onMouseLeave={() => setFlipped(false)}
         style={{ perspective: "1000px" }}
       >
-        {/* Container do flip */}
         <div
           className="relative w-full h-full transition-transform duration-500"
           style={{
@@ -153,12 +181,11 @@ function FadeInCard({ item }) {
   );
 }
 
-// Seção de galeria de imagens com Framer Motion
 function GaleriaImpressao() {
   const imagens = [adesivo, cartao, fotos, impressao, plantasEProjetos];
 
   return (
-    <section className="w-full py-16 bg-gray-50 px-4">
+    <section id="galeria" className="w-full py-16 bg-gray-50 px-4">
       <div className="max-w-6xl mx-auto text-center mb-12">
         <h2 className="text-3xl font-bold text-[#0d1625]">
           Galeria do Serviço
