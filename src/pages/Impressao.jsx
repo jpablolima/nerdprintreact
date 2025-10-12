@@ -1,3 +1,7 @@
+import LocationSection from "../components/LocationSection";
+import GoogleReviews from "../components/GoogleReviews";
+
+
 import { useEffect, useRef, useState } from "react";
 import {
   FaFileAlt,
@@ -8,7 +12,7 @@ import {
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 
-// Imagens locais
+
 import adesivo from "../assets/impressao/adesivo.jpg";
 import cartao from "../assets/impressao/cartaoDeVisita.jpg";
 import fotos from "../assets/impressao/fotos.jpg";
@@ -50,7 +54,7 @@ function ImpressaoPremium() {
 
   return (
     <div className="flex flex-col items-center w-full bg-[#0d1625] text-[#0d1625]">
-      {/* Banner estilo canecas */}
+      {/* capa impressão */}
       <div
         className="relative w-full min-h-[60vh] flex items-center justify-center text-center text-white overflow-hidden"
         style={{
@@ -195,6 +199,10 @@ function GaleriaImpressao() {
         </p>
       </div>
 
+
+
+   
+
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {imagens.map((img, index) => (
           <motion.div
@@ -213,8 +221,14 @@ function GaleriaImpressao() {
           </motion.div>
         ))}
       </div>
+
+        < GoogleReviews/>
+        <LocationSection/>
+
+
     </section>
   );
 }
+
 
 export default ImpressaoPremium;
