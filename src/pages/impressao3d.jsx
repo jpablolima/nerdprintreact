@@ -16,7 +16,7 @@ import cartao from "../assets/impressao/cartaoDeVisita.jpg";
 import fotos from "../assets/impressao/fotos.jpg";
 import impressao from "../assets/impressao/impressao.jpg";
 import plantasEProjetos from "../assets/impressao/plantasEProjetos.jpg";
-import capaimpressao from "../assets/impressao/capaimpressao.jpg";
+import capaimpressao from "../assets/3d/capa3d.png";
 
 function Impressao3d() {
   const impressaoTypes = [
