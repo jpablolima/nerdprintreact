@@ -1,13 +1,17 @@
 import LocationSection from "../components/LocationSection";
 import GoogleReviews from "../components/GoogleReviews";
-
+import { BsFillBadge3dFill } from "react-icons/bs";
+import { FaCube } from "react-icons/fa";
+import { FiGift } from "react-icons/fi";
 import { useEffect, useRef, useState } from "react";
+
 import {
   FaFileAlt,
   FaPalette,
   FaBook,
   FaProjectDiagram,
   FaWhatsapp,
+  FaKey,
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 
@@ -21,32 +25,33 @@ import capaimpressao from "../assets/3d/capa3d.png";
 function Impressao3d() {
   const impressaoTypes = [
     {
-      title: "Preto e Branco",
-      description:
-        "Documentos e trabalhos em preto e branco com qualidade profissional.",
-      icon: <FaFileAlt className="text-4xl mb-2 text-[#c4f25c]" />,
-      details: "Ideal para trabalhos simples e documentos do dia a dia.",
+      title: "Chaveiros Personalizados",
+      description: "Chaveiros 3D, Nomes, Logotipos e frases",
+      icon: <FaKey className="text-4xl mb-2 text-[#c4f25c]" />,
+      details:
+        "Ideal para Presentes, lembranças e brindes personalizados com sua identidade.",
     },
     {
-      title: "Colorido",
-      description:
-        "Impressões coloridas para trabalhos, projetos ou materiais gráficos.",
-      icon: <FaPalette className="text-4xl mb-2 text-[#c4f25c]" />,
-      details: "Perfeito para apresentações, flyers ou projetos criativos.",
+      title: "Brindes Personalizados",
+      description: "Brindes Personalizados para enventos.",
+      icon: <FiGift className="text-4xl mb-2 text-[#c4f25c]" />,
+      details:
+        "Brindes criativos para empresas, eventos, aniversários e ações promocionais.",
     },
     {
-      title: "Trabalhos Acadêmicos",
-      description: "Impressão de monografias, artigos e relatórios acadêmicos.",
+      title: "Placas Decorativas",
+      description: "Placas Decorativas com nome ou frase.",
       icon: <FaBook className="text-4xl mb-2 text-[#c4f25c]" />,
       details:
-        "Capa personalizada, encadernação e alta qualidade de impressão.",
+        "Placas para quartos, salas, escritórios, ambientes gamers e estabelecimentos comerciais.",
     },
     {
-      title: "Projetos Profissionais",
+      title: "Projetos Sob Medida",
       description:
-        "Plantas, projetos de design ou arquitetura com impressão de alta precisão.",
+        "Suportes em geral, para residêncis, celulares e muitos mais. ",
       icon: <FaProjectDiagram className="text-4xl mb-2 text-[#c4f25c]" />,
-      details: "Alta resolução e cores precisas para profissionais.",
+      details:
+        "Suportes práticos e personalizados para celulares, controles, notebooks e muito mais. Soluções para armazenar, organizar e facilitar o seu dia a dia.",
     },
   ];
 
@@ -63,12 +68,11 @@ function Impressao3d() {
       >
         <div className="max-w-3xl px-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Impressão de Alta Qualidade
+            Impressão 3D de Alta Precisão
           </h1>
           <p className="text-lg md:text-xl text-gray-200 mb-8">
-            Impressão de documentos, trabalhos e projetos em preto e branco ou
-            colorido com a máxima qualidade. Ideal para uso acadêmico,
-            profissional ou pessoal.
+            Produza chaveiros personalizados, placas decorativas, miniaturas,
+            brindes corporativos, suportes, organizadores e muito mais.
           </p>
 
           <div className="flex flex-wrap gap-4 justify-center">
