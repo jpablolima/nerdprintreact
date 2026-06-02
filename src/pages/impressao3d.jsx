@@ -15,11 +15,12 @@ import {
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 
-import adesivo from "../assets/impressao/adesivo.jpg";
-import cartao from "../assets/impressao/cartaoDeVisita.jpg";
-import fotos from "../assets/impressao/fotos.jpg";
-import impressao from "../assets/impressao/impressao.jpg";
-import plantasEProjetos from "../assets/impressao/plantasEProjetos.jpg";
+import adesivo from "../assets/3d/chaveiroset.jpeg";
+import cartao from "../assets/3d/hulk.jpeg";
+import fotos from "../assets/3d/actionfigurecaveira.jpeg";
+import impressao from "../assets/3d/leão.jpeg";
+import plantasEProjetos from "../assets/3d/portafigurinhasdacopa.jpeg";
+//import portalatadacopa from "../assets/3d/portalatadacopa.jpeg";
 import capaimpressao from "../assets/3d/capa3d.png";
 
 function Impressao3d() {
