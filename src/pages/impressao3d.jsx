@@ -120,6 +120,8 @@ function Impressao3d() {
   );
 }
 
+// galeria
+
 function FadeInCard({ item }) {
   const [flipped, setFlipped] = useState(false);
   const ref = useRef(null);
