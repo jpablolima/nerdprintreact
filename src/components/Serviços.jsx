@@ -1,3 +1,4 @@
+import { BsFillBadge3dFill } from "react-icons/bs";
 import {
   FaPrint,
   FaTshirt,
@@ -7,6 +8,7 @@ import {
   FaCameraRetro,
   FaPaintBrush,
 } from "react-icons/fa";
+
 import ServiceImg1 from "../assets/impressora.jpg";
 import ServiceImg2 from "../assets/camisas.png";
 import ServiceImg3 from "../assets/canecas.png";
@@ -14,6 +16,7 @@ import ServiceImg4 from "../assets/adesivo.png";
 import ServiceImg5 from "../assets/chaveiro.png";
 import ServiceImg6 from "../assets/fotos.png";
 import ServiceImg7 from "../assets/socialmedia.png";
+import ServiceImg8 from "../assets/3d.jpg";
 import { Link } from "react-router-dom";
 
 const services = [
@@ -71,6 +74,14 @@ const services = [
       "Designs exclusivos para redes sociais, logos e materiais gráficos.",
     image: ServiceImg7,
     page: "/artes",
+  },
+  {
+    icon: <BsFillBadge3dFill />,
+    title: "Impressão 3D",
+    description:
+      "Criamos peças personalizadas em impressão 3D com qualidade, precisão e ótimo acabamento.",
+    image: ServiceImg8,
+    page: "/3d",
   },
 ];
 

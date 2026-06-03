@@ -10,6 +10,7 @@ import Adesivos from "./pages/Adesivos";
 import Fotos from "./pages/Fotos";
 import Chaveiros from "./pages/Chaveiros";
 import ArteDesign from "./pages/ArteDesign";
+import Impressao3d from "./pages/impressao3d";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/fotos" element={<Fotos />} />
         <Route path="/chaveiros" element={<Chaveiros />} />
         <Route path="/artes" element={<ArteDesign />} />
+        <Route path="/3d" element={<Impressao3d />} />
       </Routes>
     </Router>
   );
