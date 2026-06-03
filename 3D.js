@@ -47,4 +47,4 @@ function GaleriaImpressao3d() {
     </section>
   );
 }
-export default Impressao3d;
+export default GaleriaImpressao3d;

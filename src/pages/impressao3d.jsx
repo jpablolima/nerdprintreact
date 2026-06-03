@@ -20,8 +20,15 @@ import cartao from "../assets/3d/hulk.jpeg";
 import fotos from "../assets/3d/actionfigurecaveira.jpeg";
 import impressao from "../assets/3d/leão.jpeg";
 import plantasEProjetos from "../assets/3d/portafigurinhasdacopa.jpeg";
-//import portalatadacopa from "../assets/3d/portalatadacopa.jpeg";
+import portalatadacopa from "../assets/3d/portalatadacopa.jpeg";
 import capaimpressao from "../assets/3d/capa3d.png";
+import chaveiro1 from "../assets/3d/chaveiro1.jpeg";
+import chaveiro2 from "../assets/3d/chaveiro2.jpeg";
+import dragao from "../assets/3d/dragao.jpeg";
+import gueixa from "../assets/3d/gueixa.jpeg";
+import knuckpool from "../assets/3d/knuckpool.jpeg";
+import plaquinha1 from "../assets/3d/plaquinha1.jpeg";
+import plaquinha2 from "../assets/3d/plaquinha2.jpeg";
 
 function Impressao3d() {
   const impressaoTypes = [
@@ -191,11 +198,24 @@ function FadeInCard({ item }) {
 }
 
 function GaleriaImpressao() {
-  const imagens = [adesivo, cartao, fotos, impressao, plantasEProjetos];
-
+  const imagens = [
+    adesivo,
+    cartao,
+    fotos,
+    impressao,
+    plantasEProjetos,
+    portalatadacopa,
+    chaveiro1,
+    chaveiro2,
+    dragao,
+    gueixa,
+    knuckpool,
+    plaquinha1,
+    plaquinha2,
+  ];
   return (
-    <section id="galeria" className="w-full py-16 bg-gray-50 px-4">
-      <div className="max-w-6xl mx-auto text-center mb-12">
+    <section id="galeria" className="w-full py-16 bg-gray-50 px-6">
+      <div className="max-w-7xl mx-auto text-center mb-12">
         <h2 className="text-3xl font-bold text-[#0d1625]">
           Galeria do Serviço
         </h2>
@@ -204,20 +224,20 @@ function GaleriaImpressao() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="max-w-7xl mx-auto columns-1 sm:columns-2 lg:columns-3 xl:columns-7 gap-6">
         {imagens.map((img, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: index * 0.2 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
             viewport={{ once: true }}
-            className="rounded-lg overflow-hidden shadow-lg transform transition hover:scale-105"
+            className="mb-4 break-inside-avoid overflow-hidden rounded-xl shadow-lg"
           >
             <img
               src={img}
               alt={`Exemplo ${index + 1}`}
-              className="w-full h-48 object-cover"
+              className="w-full hover:scale-105 transition duration-300"
             />
           </motion.div>
         ))}
@@ -227,6 +247,41 @@ function GaleriaImpressao() {
       <LocationSection />
     </section>
   );
+
+  // return (
+  //   <section id="galeria" className="w-full py-16 bg-gray-50 px-4">
+  //     <div className="max-w-6xl mx-auto text-center mb-12">
+  //       <h2 className="text-3xl font-bold text-[#0d1625]">
+  //         Galeria do Serviço
+  //       </h2>
+  //       <p className="text-gray-600 mt-2">
+  //         Veja alguns exemplos das impressões que realizamos.
+  //       </p>
+  //     </div>
+
+  //     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+  //       {imagens.map((img, index) => (
+  //         <motion.div
+  //           key={index}
+  //           initial={{ opacity: 0, scale: 0.9 }}
+  //           whileInView={{ opacity: 1, scale: 1 }}
+  //           transition={{ duration: 0.5, delay: index * 0.2 }}
+  //           viewport={{ once: true }}
+  //           className="rounded-lg overflow-hidden shadow-lg transform transition hover:scale-105"
+  //         >
+  //           <img
+  //             src={img}
+  //             alt={`Exemplo ${index + 1}`}
+  //             className="w-full h-48 object-cover"
+  //           />
+  //         </motion.div>
+  //       ))}
+  //     </div>
+
+  //     <GoogleReviews />
+  //     <LocationSection />
+  //   </section>
+  // );
 }
 
 export default Impressao3d;
