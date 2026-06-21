@@ -91,7 +91,7 @@ function Impressao3d() {
               className="px-6 py-3 bg-[#c4f25c] text-[#0d1625] font-semibold rounded-lg shadow-lg hover:bg-[#a7d64d] transition transform hover:scale-105"
             >
               <FaWhatsapp className="inline-block mr-2" />
-              Enviar Arquivo via WhatsApp
+              Entrar em Contato pelo WhatsApp
             </a>
             <a
               href="#galeria"
@@ -247,41 +247,5 @@ function GaleriaImpressao() {
       <LocationSection />
     </section>
   );
-
-  // return (
-  //   <section id="galeria" className="w-full py-16 bg-gray-50 px-4">
-  //     <div className="max-w-6xl mx-auto text-center mb-12">
-  //       <h2 className="text-3xl font-bold text-[#0d1625]">
-  //         Galeria do Serviço
-  //       </h2>
-  //       <p className="text-gray-600 mt-2">
-  //         Veja alguns exemplos das impressões que realizamos.
-  //       </p>
-  //     </div>
-
-  //     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-  //       {imagens.map((img, index) => (
-  //         <motion.div
-  //           key={index}
-  //           initial={{ opacity: 0, scale: 0.9 }}
-  //           whileInView={{ opacity: 1, scale: 1 }}
-  //           transition={{ duration: 0.5, delay: index * 0.2 }}
-  //           viewport={{ once: true }}
-  //           className="rounded-lg overflow-hidden shadow-lg transform transition hover:scale-105"
-  //         >
-  //           <img
-  //             src={img}
-  //             alt={`Exemplo ${index + 1}`}
-  //             className="w-full h-48 object-cover"
-  //           />
-  //         </motion.div>
-  //       ))}
-  //     </div>
-
-  //     <GoogleReviews />
-  //     <LocationSection />
-  //   </section>
-  // );
 }
-
 export default Impressao3d;
