@@ -4,6 +4,35 @@ const PLACE_ID = "ChIJ73XekB25W5MR8uekkJAG8Zo";
 
 const reviews = [
   {
+    author: "Ana Luisa",
+    rating: 5,
+    text: "Excelente atendimento, pedido entregue muito rápido. Otima qualidade.",
+    time: " 1 semana atrás",
+    avatar: "RA",
+  },
+  {
+    author: "Matheus Moreira",
+    rating: 5,
+    text: "Atendimento nota 10 eles são super atenciosos Super recomendo.",
+    time: "2 semanas atrás",
+    avatar: "RA",
+  },
+  {
+    author: "Ana Gabriela Oliveira",
+    rating: 5,
+    text: "Gosto muito. Sempre faço meus trabalhos impressos aqui. Eles editam e deixam da forma que peço. Ótimo atendimento.",
+    time: "2 semanas atrás",
+    avatar: "RA",
+  },
+  {
+    author: "Flavia Oliveira",
+    rating: 5,
+    text: "Ótimo atendimento, Super recomendo, melhor de águas lindas ✌️💎",
+    time: "2 semanas atrás",
+    avatar: "RA",
+  },
+
+  {
     author: "Ranny Almeida",
     rating: 5,
     text: "Sabe aquelas impressões em 3D? Eles são feras, além do atendimento show. Praticidade de atender pelo WhatsApp, fui só buscar o pedido, chegando lá, estava exatamente como pedi. Obrigado!",
