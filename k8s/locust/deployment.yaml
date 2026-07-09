@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: locust
+  namespace: loadtest
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: locust
+  template:
+    metadata:
+      labels:
+        app: locust
+    spec:
+      containers:
+        - name: locust
+          image: locust
+          imagePullPolicy: Never
+          args:
+            - "-f"
+            - "/opt/nerdprintreact/k8s/locust/locustfile.py"
+            - "--host=http://nerdprint.nerdprint.svc.cluster.local"
+          ports:
+            - containerPort: 8089

@@ -21,4 +21,12 @@ spec:
           image: nerdprint
           imagePullPolicy: Never
           ports:
-            - containerPort: 8082
+            - containerPort: 80
+
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "256m"
+              memory: "256Mi"
