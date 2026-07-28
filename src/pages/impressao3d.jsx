@@ -64,16 +64,17 @@ function Impressao3d() {
   ];
 
   return (
+
     <div className="flex flex-col items-center w-full bg-[#0d1625] text-[#0d1625]">
-      {/* capa impressão */}
-      <div
-        className="relative w-full min-h-[60vh] flex items-center justify-center text-center text-white overflow-hidden"
-        style={{
-          backgroundImage: `linear-gradient(rgba(15,23,42,0.85), rgba(15,23,42,0.85)), url(${capaimpressao})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
+          {/* capa impressão */}
+          <div
+            className="relative w-full min-h-[60vh] flex items-center justify-center text-center text-white overflow-hidden"
+            style={{
+              backgroundImage: `linear-gradient(rgba(15,23,42,0.85), rgba(15,23,42,0.85)), url(${capaimpressao})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
         <div className="max-w-3xl px-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             Impressão 3D de Alta Precisão
