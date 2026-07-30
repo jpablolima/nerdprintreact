@@ -1,21 +1,30 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import { FaTshirt, FaPaintBrush, FaWhatsapp } from "react-icons/fa";
-import videoCamisetas from "../assets/camisetas/videoCamisetas.mp4";
+import LocationSection from "../components/LocationSection";
+import GoogleReviews from "../components/GoogleReviews";
+import { BsFillBadge3dFill } from "react-icons/bs";
+import { FaCube } from "react-icons/fa";
+import { FiGift } from "react-icons/fi";
+import { useEffect, useState } from "react";
+
+import capacamisas from "../assets/camisetas/capa.png";
 import camisa1 from "../assets/camisetas/camisa1.jpg";
 import camisa2 from "../assets/camisetas/camisa2.jpg";
 import camisa3 from "../assets/camisetas/camisa3.jpg";
 import camisa4 from "../assets/camisetas/camisa4.jpg";
+import { ImPriceTag } from "react-icons/im";
+
+import {
+  FaFileAlt,
+  FaPalette,
+  FaBook,
+  FaProjectDiagram,
+  FaKey,
+} from "react-icons/fa";
+
 
 function CamisetasPersonalizadas() {
-  const videoRef = useRef(null);
-
-  const handlePlay = () => {
-    if (videoRef.current) {
-      videoRef.current.volume = 0.5; // áudio com metade do volume
-    }
-  };
-
   const metodos = [
     {
       title: "Prensa Térmica com DTF",
@@ -34,42 +43,45 @@ function CamisetasPersonalizadas() {
   const imagens = [camisa1, camisa2, camisa3, camisa4];
 
   return (
-    <div className="flex flex-col items-center w-full bg-[#0d1625] text-white">
-      <section className="w-full py-12 px-4 pt-24 text-center">
-        <div className="max-w-2xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+    <div className="flex flex-col items-center w-full bg-[#0d1625] text-[#0d1625]">
+      {/* capa impressão */}
+      <div
+        className="relative w-full min-h-[60vh] flex items-center justify-center text-center text-white overflow-hidden"
+        style={{
+          backgroundImage: `linear-gradient(rgba(15,23,42,0.85), rgba(15,23,42,0.85)), url(${capacamisas})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="max-w-3xl px-4">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">
             Camisetas Personalizadas
           </h1>
-          <p className="text-lg md:text-xl text-gray-300 mb-6">
+
+          <p className="text-lg md:text-xl text-gray-200 mb-8">
             Estampas exclusivas feitas em prensa térmica, com DTF ou sublimação.
           </p>
-          <a
-            href="https://wa.me/556192724881"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-block px-6 py-3 bg-[#c4f25c] text-[#0d1625] font-semibold rounded-lg shadow-lg hover:bg-[#a7d64d] transition transform hover:scale-105"
-          >
-            Peça já a sua
-          </a>
-        </div>
-      </section>
 
-      {/* VÍDEO DEMONSTRATIVO */}
-      <section className="w-full py-12 px-4 flex justify-center">
-        <div className="max-w-3xl w-full">
-          <h2 className="text-3xl text-white font-bold mb-6 text-center">
-            Veja como produzimos as camisetas
-          </h2>
-          <video
-            ref={videoRef}
-            src={videoCamisetas}
-            controls
-            onPlay={handlePlay} // ajusta o volume quando o usuário clicar play
-            loop
-            className="w-full max-h-[400px] rounded-xl shadow-xl object-cover"
-          />
+          <div className="flex flex-wrap gap-4 justify-center">
+            <a
+              href="https://wa.me/556192724881"
+              target="_blank"
+              rel="noreferrer"
+              className="px-6 py-3 bg-[#c4f25c] text-[#0d1625] font-semibold rounded-lg shadow-lg hover:bg-[#a7d64d] transition transform hover:scale-105"
+            >
+              <FaWhatsapp className="inline-block mr-2" />
+              Entrar em Contato pelo WhatsApp
+            </a>
+
+            {/* <a
+              href="#galeria"
+              className="px-6 py-3 border border-[#c4f25c] text-[#c4f25c] font-semibold rounded-lg hover:bg-[#c4f25c] hover:text-[#0d1625] transition"
+            >
+              Ver Exemplos
+            </a>*/}
+          </div>
         </div>
-      </section>
+      </div>
 
       {/* GALERIA DE CAMISETAS DESTACADAS */}
       <section className="w-full py-16 bg-gray-50 px-4">
@@ -77,10 +89,12 @@ function CamisetasPersonalizadas() {
           <h2 className="text-3xl font-bold text-[#0d1625]">
             Modelos em Destaque
           </h2>
+
           <p className="text-gray-600 mt-2">
             Confira algumas camisetas personalizadas que já produzimos.
           </p>
         </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {imagens.map((img, index) => (
             <motion.div
@@ -114,11 +128,17 @@ function CamisetasPersonalizadas() {
               className="bg-white text-[#0d1625] rounded-xl p-10 shadow-2xl flex flex-col items-center text-center"
             >
               {item.icon}
-              <h3 className="text-2xl font-semibold mt-4 mb-2">{item.title}</h3>
+
+              <h3 className="text-2xl font-semibold mt-4 mb-2">
+                {item.title}
+              </h3>
+
               <p className="text-gray-700">{item.description}</p>
             </motion.div>
           ))}
         </div>
+        <GoogleReviews />
+        <LocationSection />
       </section>
 
       {/* CTA FINAL */}
@@ -131,8 +151,12 @@ function CamisetasPersonalizadas() {
         <FaWhatsapp className="text-2xl" />
         Solicitar Orçamento
       </a>
+
     </div>
+
   );
+
+
 }
 
 export default CamisetasPersonalizadas;

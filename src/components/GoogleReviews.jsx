@@ -342,7 +342,7 @@ export default function NerdPrintReviews() {
             </span>
             <Stars rating={5} size={20} />
             <span style={{ fontSize: 13, color: "#4a6080" }}>
-              · 114 avaliações no Google
+              · 136 avaliações no Google
             </span>
           </div>
         </div>
@@ -385,7 +385,7 @@ export default function NerdPrintReviews() {
             onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
           >
             <GoogleIcon size={18} />
-            Ver todas as 114 avaliações
+            Ver todas as 136 avaliações
           </a>
         </div>
       </section>
