@@ -256,7 +256,7 @@ export default function NerdPrintReviews() {
             <div>
               <Stars rating={5} />
               <div style={{ fontSize: 13, color: "#70757a", marginTop: 4 }}>
-                Baseado em 114 avaliações no Google
+                Baseado em 136 avaliações no Google
               </div>
             </div>
           </div>
