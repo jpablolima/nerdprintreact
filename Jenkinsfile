@@ -2,7 +2,7 @@ pipeline {
     agent {
        // label 'nerdprint'
         agent any
-    }
+
     stages {
         stage ("build") {
             steps {
