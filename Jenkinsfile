@@ -13,8 +13,8 @@ pipeline {
         }
         stage ("Check old image") {
             steps {
-            echo "Check old image Docker..."
-            sh "docker imagens | grep nerdprint"
+            echo "Check the application's old image..."
+            sh "docker images | grep nerdprint"
             }
         }
     }
