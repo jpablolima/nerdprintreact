@@ -7,7 +7,7 @@ pipeline {
         stage ("build") {
             steps {
             echo "building the application..."
-            sh '/home/pablo/.nvm/versions/node/v20.17.0/bin/node -v'
+            sh 'node -v'
             sh  "ls  -la"
 
             }
