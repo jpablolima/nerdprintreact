@@ -8,7 +8,7 @@ pipeline {
             steps {
             echo "building the application..."
             sh 'node -v'
-            sh  "ls  -la"
+           // sh  "ls  -la"
             }
         }
         stage ("Check old image") {
@@ -21,6 +21,12 @@ pipeline {
             steps {
             echo "Removing the application's old image"
             sh "docker rmi -f nerdprint:latest"
+            }
+        }
+        stage ("Creating new application image...") {
+            steps{
+            echo "creating new application image"
+            sh "docker build -t  nerdprint:latest ."
             }
         }
     }
