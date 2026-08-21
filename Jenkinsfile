@@ -17,5 +17,11 @@ pipeline {
             sh "docker images | grep nerdprint"
             }
         }
+        stage ("Removing the application's old image") {
+            steps {
+            echo "Removing the application's old image"
+            sh "docker rmi -f nerdprint:latest"
+            }
+        }
     }
 }
