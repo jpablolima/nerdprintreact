@@ -27,6 +27,7 @@ pipeline {
             steps{
             echo "creating new application image"
             sh "docker build -t  nerdprint:latest ."
+            sh "docker docker images | grep nerdprint"
             }
         }
     }
