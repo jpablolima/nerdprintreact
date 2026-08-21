@@ -11,10 +11,11 @@ pipeline {
             sh  "ls  -la"
             }
         }
-        stage ("Check old image")
+        stage ("Check old image") {
             steps {
             echo "Check old image Docker..."
             sh "docker imagens | grep nerdprint"
             }
+        }
     }
 }
