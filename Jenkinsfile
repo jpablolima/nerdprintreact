@@ -14,7 +14,7 @@ pipeline {
         stage ("Check old image") {
             steps {
             echo "Check the application's old image..."
-            sh "docker images | grep nerdprint"
+            sh "docker images | grep nerdprint:latest"
             }
         }
         stage ("Removing the application's old image") {
@@ -27,7 +27,7 @@ pipeline {
             steps{
             echo "creating new application image"
             sh "docker build -t  nerdprint:latest ."
-            sh "docker docker images | grep nerdprint"
+            sh "docker images | grep nerdprint:latest "
             }
         }
     }
