@@ -33,7 +33,7 @@ pipeline {
         stage("Upload new image in kind...") {
         steps {
             echo "Checking old image on kind"
-            sh "docker exec -it devops-control-plane crictl images | grep nerdprint"
+            sh "docker exec devops-control-plane crictl images | grep nerdprint"
           }
         }
     }
