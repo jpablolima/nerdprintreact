@@ -20,7 +20,7 @@ pipeline {
         stage ("Removing the application's old image") {
             steps {
                 echo "Removing the application's old image"
-                sh "docker rmi -f nerdprint:latest"
+               // sh "docker rmi -f nerdprint:latest"
             }
         }
         stage ("Creating new application image...") {
