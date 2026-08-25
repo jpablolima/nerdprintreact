@@ -30,5 +30,11 @@ pipeline {
             sh "docker images | grep nerdprint:latest "
             }
         }
+        stage("Upload new image in kind...") {
+        steps {
+        echo "Checking old image on kind"
+        sh "docker exec -it devops-control-plane crictl images | grep nerdprint"
+        }
+        }
     }
 }
