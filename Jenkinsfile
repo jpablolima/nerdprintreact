@@ -38,8 +38,13 @@ pipeline {
             sh "kind load docker-image nerdprint:latest --name devops"
             echo "Checking image on Kind..."
             sh "docker exec devops-control-plane crictl images | grep nerdprint"
-
           }
+        }
+        stage("upload deployment nerd print") {
+        steps {
+            echo "upload deployment nerd print"
+            sh "kubectl rollout restart deployment nerdprint"
+        }
         }
     }
 }
