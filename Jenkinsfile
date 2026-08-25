@@ -34,6 +34,11 @@ pipeline {
         steps {
             echo "Checking old image on kind"
             sh "docker exec devops-control-plane crictl images | grep nerdprint"
+            echo "Loading new image into Kind..."
+            sh "kind load docker-image nerdprint:latest --name devops"
+            echo "Checking image on Kind..."
+            sh "docker exec devops-control-plane crictl images | grep nerdprint"
+
           }
         }
     }
