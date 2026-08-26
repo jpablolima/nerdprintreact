@@ -43,8 +43,12 @@ pipeline {
         stage("upload deployment nerd print") {
         steps {
             echo "upload deployment nerd print"
-            sh " kubectl rollout status deployment/nerdprint -n nerdprint --timeout=120s"
-        }
+            sh """
+                kubectl rollout restart deployment/nerdprint -n nerdprint
+                kubectl rollout status deployment/nerdprint -n nerdprint --timeout=120s"
+               """
+
+            }
         }
     }
 }
