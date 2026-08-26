@@ -45,7 +45,7 @@ pipeline {
             echo "upload deployment nerd print"
             sh """
                 kubectl rollout restart deployment/nerdprint -n nerdprint
-                kubectl rollout status deployment/nerdprint -n nerdprint --timeout=120s"
+                kubectl rollout status deployment/nerdprint -n nerdprint --timeout=120s
                """
 
             }
