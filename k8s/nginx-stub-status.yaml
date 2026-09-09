@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nerdprint-nginx-stub-status
+  namespace: nerdprint
+data:
+  stub_status.conf: |
+    location /stub_status {
+        stub_status;
+        access_log off;
+
+        allow 127.0.0.1;
+        deny all;
+    }

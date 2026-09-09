@@ -5,11 +5,14 @@ metadata:
   namespace: nerdprint
   labels:
     app: nerdprint
+
 spec:
   replicas: 1
+
   selector:
     matchLabels:
       app: nerdprint
+
   template:
     metadata:
       labels:
@@ -17,11 +20,18 @@ spec:
 
     spec:
       containers:
+
+        # ==========================================
+        # NERDPRINT / NGINX
+        # ==========================================
         - name: nerdprint
           image: nerdprint
           imagePullPolicy: Never
+
           ports:
-            - containerPort: 80
+            - name: http
+              containerPort: 80
+              protocol: TCP
 
           resources:
             requests:
@@ -30,3 +40,40 @@ spec:
             limits:
               cpu: "256m"
               memory: "256Mi"
+
+          volumeMounts:
+            - name: nginx-config
+              mountPath: /etc/nginx/conf.d/default.conf
+              subPath: default.conf
+              readOnly: true
+
+        # ==========================================
+        # NGINX PROMETHEUS EXPORTER
+        # ==========================================
+        - name: nginx-exporter
+          image: nginx/nginx-prometheus-exporter:1.5
+          imagePullPolicy: IfNotPresent
+
+          args:
+            - "--nginx.scrape-uri=http://127.0.0.1:80/stub_status"
+
+          ports:
+            - name: metrics
+              containerPort: 9113
+              protocol: TCP
+
+          resources:
+            requests:
+              cpu: "10m"
+              memory: "16Mi"
+            limits:
+              cpu: "50m"
+              memory: "32Mi"
+
+      # ==========================================
+      # VOLUME DO NGINX
+      # ==========================================
+      volumes:
+        - name: nginx-config
+          configMap:
+            name: nerdprint-nginx-config

@@ -1,0 +1,23 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: nerdprint-nginx-exporter
+  namespace: monitoring
+
+  labels:
+    release: kube-prometheus-stack
+
+spec:
+  namespaceSelector:
+    matchNames:
+    - nerdprint
+
+  selector:
+    matchLabels:
+      app: nerdprint
+      component: nginx-exporter
+
+  endpoints:
+  - port: metrics
+    path: /metrics
+    interval: 5s
